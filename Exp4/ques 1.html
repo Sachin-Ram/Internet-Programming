@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test" style="text-align: center;">
+    </div>
+    <br>
+    <div style="text-align: center;"><button onclick="sorted()">SORT</button>
+    </div>
+    <script>
+        const employee = [
+            {
+                Emp_name: "xyz",
+                Emp_id: 12,
+                Emp_salary: 12000,
+                Emp_shift: "night"
+            },
+            {
+                Emp_name: "pqr",
+                Emp_id: 08,
+                Emp_salary: 15000,
+                Emp_shift: "morning"
+            },
+            {
+                Emp_name: "abc",
+                Emp_id: 05,
+                Emp_salary: 7000,
+                Emp_shift: "morning"
+            },
+            {
+                Emp_name: "test",
+                Emp_id: 06,
+                Emp_salary: 45000,
+                Emp_shift: "night"
+            },
+        ];
+        let before = "";
+        employee.forEach(
+            function objconvert(obj) {
+                before += "<pre>Name:" + " " + obj.Emp_name + "   " + "id:" + " " + obj.Emp_id + "   " + "salary:" + obj.Emp_salary +"   "+"shift:"+" "+obj.Emp_shift+ "</pre>";
+            }
+        )
+        document.getElementById("test").innerHTML = before;
+    </script>
+</body>
+
+</html>
