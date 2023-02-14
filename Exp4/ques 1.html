@@ -13,6 +13,8 @@
     <br>
     <div style="text-align: center;"><button onclick="sorted()">SORT</button>
     </div>
+    <br>
+    <div id="res" style="text-align: center;"></div>
     <script>
         const employee = [
             {
@@ -43,10 +45,33 @@
         let before = "";
         employee.forEach(
             function objconvert(obj) {
-                before += "<pre>Name:" + " " + obj.Emp_name + "   " + "id:" + " " + obj.Emp_id + "   " + "salary:" + obj.Emp_salary +"   "+"shift:"+" "+obj.Emp_shift+ "</pre>";
+                before += "<pre>Name:" + " " + obj.Emp_name + "   " + "id:" + " " + obj.Emp_id + "   " + "salary:" + obj.Emp_salary + "   " + "shift:" + " " + obj.Emp_shift + "</pre>";
             }
         )
         document.getElementById("test").innerHTML = before;
+
+
+        console.log(employee);
+
+        function sorted() {
+            employee.sort(function (a, b) {
+                if (a.Emp_name < b.Emp_name) {
+                    return -1;
+                }
+                if (a.Emp_name > b.Emp_name) {
+                    return 1;
+                }
+                return 0;
+            })
+            let after = "";
+        employee.forEach(
+            function objconvert(obj) {
+                after += "<pre>Name:" + " " + obj.Emp_name + "   " + "id:" + " " + obj.Emp_id + "   " + "salary:" + obj.Emp_salary + "   " + "shift:" + " " + obj.Emp_shift + "</pre>";
+            }
+        )
+        document.getElementById("res").innerHTML = after;
+        }
+      
     </script>
 </body>
 
