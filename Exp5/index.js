@@ -1,46 +1,44 @@
+console.log(/^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$ /.test("usernaem@domain.com"));
+
 function validate() {
 
     if (isempty("username") && isempty("userpass") && isempty("usermail") && isempty("userphno") && radio()) {
-        //         <div>
-        //         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        //           Launch static backdrop modal
-        //         </button>
 
-
-        //         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        //           <div class="modal-dialog">
-        //             <div class="modal-content">
-        //               <div class="modal-header">
-        //                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        //                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        //               </div>
-        //               <div class="modal-body">
-        //                 ...
-        //               </div>
-        //               <div class="modal-footer">
-        //                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        //                 <button type="button" class="btn btn-primary">Understood</button>
-        //               </div>
-        //             </div>
-        //           </div>
-        //         </div>
-        //         </div>
         if (/^[a-zA-Z]+$/.test(document.getElementById("username").value)) {
-            if (/[0-9]{10}$/.test(document.getElementById("userphno").value)) {
-                if(/[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{2,3}/.test(document.getElementById("usermail"))){
+            if (/^\d{10}$/.test(document.getElementById("userphno").value)) {
+                const mail = document.getElementById("usermail");
+                const regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+                    + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+                // if (/^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$ /.test(document.getElementById("usermail").value)) {
+                if (mail.value.match(regexPattern)) {
+                    if (/^\d{6}$/.test(document.getElementById("usercode").value)) {
+                        confirm("Login Successfull");
+                    }
+                    else {
+                        //else part of zip code
+                        alert("invalid zipcode");
+                    }
 
                 }
-                else{
+                else {
                     //else block of email
+                    alert("invalid mail");
                 }
             }
             else {
                 //else block of phone number
+                alert("invalid phone number");
             }
         }
         else {
             //else block of name
+            alert("invalid user name");
         }
+    
+    }
+    else{
+        //else block  of empty
+        alert("fill the form details");
     }
 }
 
