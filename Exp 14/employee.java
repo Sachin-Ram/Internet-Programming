@@ -22,7 +22,7 @@ public class employee {
         int p=0;
         String d="";
         try{
-            Connection conn=DriverManager.getConnection("jdbc:derby://localhost:1527/product116");
+            Connection conn=DriverManager.getConnection("jdbc:derby://localhost:1527/employee");
             Statement st=conn.createStatement();
             ResultSet rs=st.executeQuery("select * from employeedetails where empid="+id);
             while(rs.next()){
